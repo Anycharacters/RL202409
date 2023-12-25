@@ -3,6 +3,7 @@ from gymnasium.spaces import Discrete
 import numpy as np
 import random
 
+
 class DiscreteStatesDiscreteActions(gym.Env):
     """дискретные состояния, дискретные действия"""
     balance = 100
