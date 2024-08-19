@@ -1,5 +1,5 @@
 FROM python:3.10
-COPY ./requirements.txt /requirements.txtCOPY ./requirements.txt /requirements.txt
+COPY ./requirements.txt /requirements.txt
 RUN pip install --upgrade pip && pip install uv && uv venv
 RUN . .venv/bin/activate # source replaced with .
 RUN uv pip install --no-cache-dir --upgrade -r /requirements.txt -q
