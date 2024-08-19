@@ -1,5 +1,8 @@
 FROM python:3.10
 COPY ./requirements.txt /requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /requirements.txt -q
+RUN pip install --upgrade pip
+RUN pip install uv && uv venv
+RUN . .venv/bin/activate # source replaced with . 
+RUN uv pip install --no-cache-dir --upgrade -r /requirements.txt -q
 COPY ./app /app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
